@@ -1,3 +1,4 @@
+
 \# 🛡️ Xây dựng Hệ thống SOC Lab Giám sát An toàn Thông tin với Wazuh SIEM
 
 
@@ -44,17 +45,20 @@
 
 \*Màn hình Console hệ thống nhận IP nội bộ thành công:\*
 
-!\[Wazuh Console IP](images/1.png)
+<img width="1817" height="910" alt="1" src="https://github.com/user-attachments/assets/d03f31db-cde6-4f02-a0c8-039bcb00f53b" />
+
 
 
 
 \*Giao diện đăng nhập hệ thống qua Web (Địa chỉ truy cập: https://192.168.159.178):\*
 
-!\[Wazuh Web Login](images/login.png)
+<img width="892" height="411" alt="login" src="https://github.com/user-attachments/assets/87d81530-f77f-43c6-a4f7-800374904bca" />
+
 
 
 
 \---
+<img width="1917" height="1078" alt="avarta" src="https://github.com/user-attachments/assets/64c79d5d-6d9d-4af6-bb71-f8ad1c4267be" />![Uploading login.png…]()
 
 
 
