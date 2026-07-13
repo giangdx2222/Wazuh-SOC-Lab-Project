@@ -1,88 +1,71 @@
+<<<<<<< HEAD
 
 \# 🛡️ Xây dựng Hệ thống SOC Lab Giám sát An toàn Thông tin với Wazuh SIEM
+=======
+🛡️ Xây dựng Hệ thống SOC Lab Giám sát An toàn Thông tin với Wazuh SIEM
+>>>>>>> 4643ae0 (giang)
 
 
 
-\## 📝 Tổng quan dự án
+📝 Tổng quan dự án
 
-\[cite\_start]Dự án này được xây dựng nhằm thiết lập một mô hình phòng Lab SOC (Security Operations Center) thu nhỏ, sử dụng giải pháp \*\*Wazuh SIEM\*\* làm trung tâm quản lý và phân tích log tập trung\[cite: 14]. \[cite\_start]Hệ thống có nhiệm vụ giám sát thời gian thực, phát hiện xâm nhập và phân tích hành vi bất thường trên đa nền tảng hạ tầng\[cite: 14].
-
-
-
-\### 🏗️ Kiến trúc mô hình phòng Lab
-
-\* \[cite\_start]\*\*SIEM / Central Manager:\*\* Máy chủ Wazuh Server (Triển khai trên VMware Workstation)\[cite: 14, 20].
-
-\* \[cite\_start]\*\*Windows Endpoint (Giám sát chính):\*\* Máy Host Windows cá nhân (Sử dụng Wazuh Agent kết hợp Microsoft Sysmon để đẩy log sâu)\[cite: 14, 26, 27].
-
-\* \[cite\_start]\*\*Linux Endpoint (Giám sát \& Giả lập tấn công):\*\* Máy ảo Kali Linux (Cài đặt Wazuh Agent giám sát log và thực hiện kiểm thử xâm nhập)\[cite: 14, 23, 30].
+Dự án này được xây dựng nhằm thiết lập một mô hình phòng Lab SOC (Security Operations Center) thu nhỏ, sử dụng giải pháp \*\*Wazuh SIEM\*\* làm trung tâm quản lý và phân tích log tập trung\[cite: 14]. \[cite\_start]Hệ thống có nhiệm vụ giám sát thời gian thực, phát hiện xâm nhập và phân tích hành vi bất thường trên đa nền tảng hạ tầng\[cite: 14].
 
 
+🏗️ Kiến trúc mô hình phòng Lab
 
-\---
+*SIEM / Central Manager:\*\* Máy chủ Wazuh Server (Triển khai trên VMware Workstation)\[cite: 14, 20].
+
+*Windows Endpoint (Giám sát chính):\*\* Máy Host Windows cá nhân (Sử dụng Wazuh Agent kết hợp Microsoft Sysmon để đẩy log sâu)\[cite: 14, 26, 27].
+
+*Linux Endpoint (Giám sát \& Giả lập tấn công):\*\* Máy ảo Kali Linux (Cài đặt Wazuh Agent giám sát log và thực hiện kiểm thử xâm nhập)\[cite: 14, 23, 30].
 
 
 
-\## \[cite\_start]🚀 Giai đoạn 1: Triển khai \& Cấu hình Máy chủ Wazuh SIEM Central 
+🚀 Giai đoạn 1: Triển khai \& Cấu hình Máy chủ Wazuh SIEM Central 
 
+1. Môi trường triển khai
 
+Phần mềm ảo hóa: VMware Workstation Pro 
 
-\### 1. Môi trường triển khai
+Nền tảng: Wazuh OVA (Open Virtual Appliance) phiên bản 4.14.6\[cite: 2, 4].
 
-\* \[cite\_start]Phần mềm ảo hóa: VMware Workstation Pro 
+Cấu hình cấp phát sau tinh chỉnh: 1 vCPU (2 Cores), 4GB RAM, Card mạng chế độ `NAT`\[cite: 10, 60, 110].
 
-\* \[cite\_start]Nền tảng: Wazuh OVA (Open Virtual Appliance) phiên bản 4.14.6\[cite: 2, 4].
+2. Kết quả đạt được
 
-\* \[cite\_start]Cấu hình cấp phát sau tinh chỉnh: 1 vCPU (2 Cores), 4GB RAM, Card mạng chế độ `NAT`\[cite: 10, 60, 110].
+Hệ thống đã khởi động thành công dịch vụ ngầm, tự động nhận IP nội bộ từ DHCP server của VMware là \*\*`192.168.159.178`\*\*\[cite: 107, 113]. \[cite\_start]Toàn bộ các dịch vụ (Wazuh Indexer, Server, Dashboard) đã vận hành ổn định\[cite: 2, 85].
 
-
-
-\### 2. Kết quả đạt được
-
-\[cite\_start]Hệ thống đã khởi động thành công dịch vụ ngầm, tự động nhận IP nội bộ từ DHCP server của VMware là \*\*`192.168.159.178`\*\*\[cite: 107, 113]. \[cite\_start]Toàn bộ các dịch vụ (Wazuh Indexer, Server, Dashboard) đã vận hành ổn định\[cite: 2, 85].
-
-
-
-\*Màn hình Console hệ thống nhận IP nội bộ thành công:\*
+*Màn hình Console hệ thống nhận IP nội bộ thành công:\*
 
 <img width="1817" height="910" alt="1" src="https://github.com/user-attachments/assets/d03f31db-cde6-4f02-a0c8-039bcb00f53b" />
 
 
-
-
-\*Giao diện đăng nhập hệ thống qua Web (Địa chỉ truy cập: https://192.168.159.178):\*
+*Giao diện đăng nhập hệ thống qua Web (Địa chỉ truy cập: https://192.168.159.178):\*
 
 <img width="892" height="411" alt="login" src="https://github.com/user-attachments/assets/87d81530-f77f-43c6-a4f7-800374904bca" />
-
-
 
 
 \---
 <img width="1917" height="1078" alt="avarta" src="https://github.com/user-attachments/assets/64c79d5d-6d9d-4af6-bb71-f8ad1c4267be" />![Uploading login.png…]()
 
+🛠️ Nhật ký khắc phục lỗi hệ thống (Troubleshooting Log) 
 
+Trong quá trình khởi tạo cấu hình file mẫu `.ova` ban đầu trên nền tảng VMware, hệ thống gặp một số xung đột phần cứng thực tế\[cite: 20, 58]. \[cite\_start]Dưới đây là quy trình debug lỗi:
 
-\## \[cite\_start]🛠️ Nhật ký khắc phục lỗi hệ thống (Troubleshooting Log) 
+❌ Lỗi 1: Treo và sập CPU khi khởi động (`The CPU has been disabled by the guest operating system`)
 
+*Nguyên nhân:\*\* Cấu hình lõi phần cứng mặc định của file OVA phân tách không phù hợp kiến trúc CPU ảo (4 Processors x 1 Core) và thiếu tính năng hỗ trợ ảo hóa lồng nhau (Nested Virtualization)\[cite: 58, 59].
 
-
-\[cite\_start]Trong quá trình khởi tạo cấu hình file mẫu `.ova` ban đầu trên nền tảng VMware, hệ thống gặp một số xung đột phần cứng thực tế\[cite: 20, 58]. \[cite\_start]Dưới đây là quy trình debug lỗi:
-
-
-
-\### ❌ Lỗi 1: Treo và sập CPU khi khởi động (`The CPU has been disabled by the guest operating system`)
-
-\* \[cite\_start]\*\*Nguyên nhân:\*\* Cấu hình lõi phần cứng mặc định của file OVA phân tách không phù hợp kiến trúc CPU ảo (4 Processors x 1 Core) và thiếu tính năng hỗ trợ ảo hóa lồng nhau (Nested Virtualization)\[cite: 58, 59].
-
-\* \[cite\_start]\*\*Giải pháp:\*\* Chỉnh sửa phần cài đặt phần cứng (Settings) máy ảo trên VMware thành `1 Processor` và `2 Cores per processor`\[cite: 60]. \[cite\_start]Đồng thời tích chọn kích hoạt tính năng phần cứng `Virtualize Intel VT-x/EPT or AMD-V/RVI`\[cite: 64].
+*Giải pháp:\*\* Chỉnh sửa phần cài đặt phần cứng (Settings) máy ảo trên VMware thành `1 Processor` và `2 Cores per processor`\[cite: 60]. \[cite\_start]Đồng thời tích chọn kích hoạt tính năng phần cứng `Virtualize Intel VT-x/EPT or AMD-V/RVI`\[cite: 64].
 
 
 
-\### ❌ Lỗi 2: Xung đột ảo hóa hệ điều hành Host (`Virtualized AMD-V/RVI is not supported on this platform`)
+❌ Lỗi 2: Xung đột ảo hóa hệ điều hành Host (`Virtualized AMD-V/RVI is not supported on this platform`)
 
-\* \*\*Nguyên nhân:\*\* Các tính năng bảo mật bảo vệ lõi (`Memory Integrity`) và nền tảng ảo hóa mặc định của Windows (`Hyper-V`, `Virtual Machine Platform`) giành quyền kiểm soát độc quyền tính năng ảo hóa phần cứng của chip, chặn không cho phần mềm VMware can thiệp lớp ảo hóa lồng nhau.
+*Nguyên nhân:\*\* Các tính năng bảo mật bảo vệ lõi (`Memory Integrity`) và nền tảng ảo hóa mặc định của Windows (`Hyper-V`, `Virtual Machine Platform`) giành quyền kiểm soát độc quyền tính năng ảo hóa phần cứng của chip, chặn không cho phần mềm VMware can thiệp lớp ảo hóa lồng nhau.
 
-\* \*\*Giải pháp:\*\*
+*Giải pháp:\*\*
 
 &#x20;   1. Truy cập `Core Isolation` trên Windows Defender và chuyển `Memory Integrity` sang trạng thái \*\*OFF\*\*.
 
@@ -92,23 +75,19 @@
 
 
 
-\### \[cite\_start]❌ Lỗi 3: Không nhận địa chỉ IP mạng nội bộ (Chỉ nhận Loopback IP `127.0.0.1`) \[cite: 105]
+❌ Lỗi 3: Không nhận địa chỉ IP mạng nội bộ (Chỉ nhận Loopback IP `127.0.0.1`) \[cite: 105]
 
-\* \[cite\_start]\*\*Nguyên nhân:\*\* Do card mạng `eth0` của máy ảo đang thiết lập chế độ chưa khớp với dải cấp phát DHCP của hệ thống phần mềm ảo hóa\[cite: 107].
+*Nguyên nhân:\*\* Do card mạng `eth0` của máy ảo đang thiết lập chế độ chưa khớp với dải cấp phát DHCP của hệ thống phần mềm ảo hóa\[cite: 107].
 
-\* \[cite\_start]\*\*Giải pháp:\*\* Thay đổi cấu hình Network Adapter từ `Bridged` sang `NAT`, thực hiện xin lại cấp phát IP động bằng lệnh `sudo dhclient eth0` (hoặc khởi động lại máy ảo)\[cite: 110, 111]. \[cite\_start]Hệ thống nhận dải IP hợp lệ: `192.168.159.178`\[cite: 113].
+*Giải pháp:\*\* Thay đổi cấu hình Network Adapter từ `Bridged` sang `NAT`, thực hiện xin lại cấp phát IP động bằng lệnh `sudo dhclient eth0` (hoặc khởi động lại máy ảo)\[cite: 110, 111]. \[cite\_start]Hệ thống nhận dải IP hợp lệ: `192.168.159.178`\[cite: 113].
 
+
+❌ Lỗi 4: Web báo "Wazuh dashboard server is not ready yet" mặc dù Ping thông hoàn toàn
+*Dấu hiệu nhận biết:** Kiểm tra màn hình Console thấy thông báo hệ thống: `Out of memory: Killed process (java)`.
+*Nguyên nhân:** Máy ảo bị thiếu hụt bộ nhớ RAM, cơ chế `OOM-Killer` của Linux Kernel tự động kích hoạt và kill tiến trình `java` của thành phần `Wazuh Indexer` để bảo vệ hệ thống. Thiếu cơ sở dữ liệu khiến Dashboard không thể sẵn sàng khởi chạy.
+*Giải pháp:** Tắt máy ảo, nâng mức cấp phát RAM trong cấu hình VMware lên từ 4GB đến 6GB. Khởi động lại hệ thống và kiểm tra trạng thái dịch vụ ổn định bằng `systemctl status wazuh-indexer`.
 
 
 \---
 
-
-
-\## 📅 Lộ trình các bước tiếp theo (Next Steps)
-
-\- \[ ] \[cite\_start]\*\*Giai đoạn 2:\*\* Cấu hình và tích hợp Wazuh Agent lên máy Windows Host + Triển khai cấu hình bộ lọc Microsoft Sysmon log nâng cao\[cite: 26, 27].
-
-\- \[ ] \[cite\_start]\*\*Giai đoạn 3:\*\* Cài đặt Agent giám sát lên máy Kali Linux, thiết lập thu thập log xác thực hệ thống\[cite: 23, 24].
-
-\- \[ ] \[cite\_start]\*\*Giai đoạn 4:\*\* Giả lập các kỹ thuật tấn công (Brute-force, port scanning) và cấu hình Custom Rules trên SIEM để kích hoạt Alert hiển thị Dashboard\[cite: 30, 31].
 
