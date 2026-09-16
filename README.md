@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-
-\# 🛡️ Xây dựng Hệ thống SOC Lab Giám sát An toàn Thông tin với Wazuh SIEM
+# 🛡️ Xây dựng Hệ thống SOC Lab Giám sát An toàn Thông tin với Wazuh SIEM
 =======
 🛡️ Xây dựng Hệ thống SOC Lab Giám sát An toàn Thông tin với Wazuh SIEM
 >>>>>>> 4643ae0 (giang)
